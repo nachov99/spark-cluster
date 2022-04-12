@@ -1,0 +1,3 @@
+applications:
+  spark: "3.2.1"
+  jupyterlab: "3.0.0"
