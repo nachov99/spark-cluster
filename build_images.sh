@@ -36,6 +36,9 @@ function cleanImages() {
 }
 
 function buildImages() {
+	# Create workspace folder
+	mkdir workspace
+	
 	# Build cluster-base image
 	docker build \
 		-f docker/cluster-base/Dockerfile \
