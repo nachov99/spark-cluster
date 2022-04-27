@@ -4,6 +4,8 @@ volumes:
     driver: local
 services:
   jupyterlab:
+    env_file:
+        - .env
     image: jupyterlab:3.0.0-spark-3.2.1
     container_name: ${COMPOSE_PROJECT_NAME}-jupyterlab
     ports:
@@ -12,6 +14,8 @@ services:
     volumes:
       - shared-workspace:/opt/workspace
   spark-master:
+    env_file:
+          - .env
     image: spark-master:3.2.1
     container_name: ${COMPOSE_PROJECT_NAME}-spark-master
     ports:
@@ -20,6 +24,8 @@ services:
     volumes:
       - shared-workspace:/opt/workspace
   spark-worker-1:
+    env_file:
+        - .env
     image: spark-worker:3.2.1
     container_name: ${COMPOSE_PROJECT_NAME}-spark-worker-1
     environment:
@@ -32,6 +38,8 @@ services:
     depends_on:
       - spark-master
   spark-worker-2:
+    env_file:
+        - .env
     image: spark-worker:3.2.1
     container_name: ${COMPOSE_PROJECT_NAME}-spark-worker-2
     environment:

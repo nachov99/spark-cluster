@@ -13,6 +13,8 @@ else
 	export COMPOSE_PROJECT_NAME="$1"
 fi
 
+echo "COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT_NAME" > ".env"
+
 function cleanContainers() {
 	container=$(docker ps -a | grep ''${COMPOSE_PROJECT_NAME}'-jupyterlab' | awk '{print $1}')
 	echo "${comtainer}"
